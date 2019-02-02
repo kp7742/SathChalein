@@ -6,12 +6,9 @@ import android.widget.ImageView;
 
 import com.github.demono.adapter.InfinitePagerAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import dev.psychocoders.sathchalein.R;
 
-public class FrontSliderAdapter extends InfinitePagerAdapter {
+public class SlideShowAdapter extends InfinitePagerAdapter {
     @Override
     public int getItemCount() {
         return 4;

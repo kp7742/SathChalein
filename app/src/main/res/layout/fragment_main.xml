@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MainFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.github.demono.AutoScrollViewPager
+            android:id="@+id/slideshow"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_marginBottom="491dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:slideDirection="right"
+            app:slideDuration="3000"
+            app:slideInterval="3000"
+            app:stopWhenTouch="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
+            android:text="@string/popular_destinations"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/slideshow" />
+
+        <TextView
+            android:id="@+id/destViewall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/view_all"
+            android:textColor="@android:color/holo_blue_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/slideshow" />
+
+        <HorizontalScrollView
+            android:id="@+id/populardestview"
+            android:layout_width="395dp"
+            android:layout_height="135dp"
+            android:layout_marginTop="76dp"
+            android:layout_marginBottom="279dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/slideshow">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/populardest"
+                android:layout_width="wrap_content"
+                android:layout_height="130dp" />
+        </HorizontalScrollView>
+
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>
