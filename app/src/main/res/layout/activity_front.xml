@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity">
+    tools:context=".activites.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -31,13 +31,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/backdrop"
+                <com.github.demono.AutoScrollViewPager
+                    android:id="@+id/slideshow"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@color/colorPrimaryDark"
-                    app:layout_collapseMode="parallax" />
+                    app:stopWhenTouch="true"
+                    app:slideInterval="5000"
+                    app:slideDirection="right"
+                    app:slideDuration="5000"
+                    app:layout_collapseMode="parallax"/>
 
             </RelativeLayout>
 
@@ -63,6 +65,7 @@
         card_view:cardCornerRadius="4dp">
 
         <SearchView
+            android:id="@+id/search_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
