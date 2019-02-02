@@ -3,6 +3,8 @@ package dev.psychocoders.sathchalein.fragments;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +13,12 @@ import android.widget.HorizontalScrollView;
 
 import com.github.demono.AutoScrollViewPager;
 
+import java.util.ArrayList;
+
 import dev.psychocoders.sathchalein.R;
+import dev.psychocoders.sathchalein.adapters.PopularDestAdapter;
 import dev.psychocoders.sathchalein.adapters.SlideShowAdapter;
+import dev.psychocoders.sathchalein.models.DestinationModel;
 
 public class MainFragment extends Fragment {
     static MainFragment mainFragment;
@@ -32,9 +38,20 @@ public class MainFragment extends Fragment {
         slider.setAdapter(new SlideShowAdapter());
         slider.startAutoScroll();
 
-        HorizontalScrollView horizontalScrollView = (HorizontalScrollView) v.findViewById(R.id.populardestview);
-        RecyclerView recyclerView = (RecyclerView) horizontalScrollView.findViewById(R.id.populardest);
+        ArrayList<DestinationModel> models = new ArrayList<>();
+        models.add(new DestinationModel("Ajmer",R.drawable.ajmer));
+        models.add(new DestinationModel("Ajmer",R.drawable.ajmer));
+        models.add(new DestinationModel("Ajmer",R.drawable.ajmer));
+        models.add(new DestinationModel("Ajmer",R.drawable.ajmer));
+        models.add(new DestinationModel("Ajmer",R.drawable.ajmer));
+        models.add(new DestinationModel("Ajmer",R.drawable.ajmer));
 
+
+        RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.populardest);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.clearAnimation();
+        recyclerView.setAdapter(new PopularDestAdapter(models));
         return v;
     }
 }
