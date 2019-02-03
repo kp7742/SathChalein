@@ -44,6 +44,13 @@ public class LoginActivity extends AppCompatActivity {
                 new LoginHandler(LoginActivity.this).execute();
             }
         });
+        TextView signupbtn = (TextView) findViewById(R.id.signupbtn);
+        signupbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, SignupActivity.class));
+            }
+        });
     }
 
     private void initView() {
@@ -63,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             dialog = new ProgressDialog(activity);
-            dialog.setTitle("Opening...");
+            dialog.setTitle("Logging In...");
             dialog.setCancelable(false);
             dialog.create();
             dialog.show();
@@ -77,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                     .addEncoded("pass",activity.pass)
                     .build();
             Request request = new Request.Builder()
-                    .url("http://172.23.0.88/sath/login.php")
+                    .url("https://indianricell.tk/sath/login.php")
                     .post(body)
                     .build();
             try {

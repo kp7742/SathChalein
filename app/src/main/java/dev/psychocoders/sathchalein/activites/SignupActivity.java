@@ -84,7 +84,7 @@ public class SignupActivity extends AppCompatActivity {
                     .addEncoded("number",activity.number)
                     .build();
             Request request = new Request.Builder()
-                    .url("http://172.23.0.88/sath/register.php")
+                    .url("https://indianricell.tk/sath/register.php")
                     .post(body)
                     .build();
             try {

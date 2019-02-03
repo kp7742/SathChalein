@@ -39,6 +39,12 @@
             android:name=".activites.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme"/>
+
+        <receiver android:name=".activites.MainActivity$MyBroadcastReceiver">
+            <intent-filter>
+                <action android:name="dev.psychocoders.sathchalein.DestinationFrag"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

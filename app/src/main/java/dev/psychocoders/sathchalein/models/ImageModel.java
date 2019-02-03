@@ -1,10 +1,10 @@
 package dev.psychocoders.sathchalein.models;
 
-public class DestinationModel {
+public class ImageModel {
     private String name;
     private int imgres;
 
-    public DestinationModel(String name, int imgres) {
+    public ImageModel(String name, int imgres) {
         this.name = name;
         this.imgres = imgres;
     }

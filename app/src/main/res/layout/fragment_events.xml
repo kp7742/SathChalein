@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.DestinationFragment">
+    tools:context=".fragments.EventsFragments">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/destinations"
+        android:id="@+id/events"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

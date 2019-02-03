@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import dev.psychocoders.sathchalein.R;
 import dev.psychocoders.sathchalein.models.ImageModel;
 
-public class PopularDestAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class DestinationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<ImageModel> models;
 
-    public PopularDestAdapter(ArrayList<ImageModel> models) {
+    public DestinationAdapter(ArrayList<ImageModel> models) {
         this.models = models;
     }
 
@@ -24,16 +24,16 @@ public class PopularDestAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         return new RecyclerView.ViewHolder(LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.list_item_card_small, viewGroup, false)) {
+                .inflate(R.layout.list_item_card_big, viewGroup, false)) {
         };
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         View view = viewHolder.itemView.findViewById(R.id.card_view);
-        ImageView imageView = (ImageView) view.findViewById(R.id.imageView2);
+        ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
         imageView.setImageResource(models.get(i).getImgres());
-        TextView textView = (TextView) view.findViewById(R.id.textView2);
+        TextView textView = (TextView) view.findViewById(R.id.textView);
         textView.setText(models.get(i).getName());
     }
 

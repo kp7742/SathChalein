@@ -1,5 +1,9 @@
 package dev.psychocoders.sathchalein.activites;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -12,14 +16,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import dev.psychocoders.sathchalein.fragments.DestinationFragment;
 import dev.psychocoders.sathchalein.R;
+import dev.psychocoders.sathchalein.fragments.EventsFragments;
 import dev.psychocoders.sathchalein.fragments.MainFragment;
 import dev.psychocoders.sathchalein.fragments.PlannerFragment;
 import dev.psychocoders.sathchalein.fragments.ProfileFragment;
+import dev.psychocoders.sathchalein.utils.Prefs;
 
 public class MainActivity extends AppCompatActivity {
+    BroadcastReceiver receiver = new MyBroadcastReceiver();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +68,13 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_my_bookings:
                         setFragment(5);
                         break;
+                    case R.id.nav_logout:
+                        Prefs.with(MainActivity.this).remove("username");
+                        Prefs.with(MainActivity.this).remove("password");
+                        Prefs.with(MainActivity.this).writeBoolean("islogin",false);
+                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                        finish();
+                        break;
                 }
 
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -67,6 +82,18 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        registerReceiver(receiver,new IntentFilter("dev.psychocoders.sathchalein.DestinationFrag"));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(receiver);
     }
 
     @Override
@@ -118,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 fragment = DestinationFragment.instance();
                 break;
             case 2:
-                fragment = MainFragment.instance();
+                fragment = EventsFragments.instance();
                 break;
             case 3:
                 fragment = PlannerFragment.instance();
@@ -134,5 +161,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         getSupportFragmentManager().beginTransaction().replace(R.id.placeholder,fragment).commit();
+    }
+
+    public class MyBroadcastReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            //Toast.makeText(MainActivity.this,"View All",Toast.LENGTH_SHORT).show();
+            setFragment(1);
+        }
     }
 }
