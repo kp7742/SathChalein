@@ -105,7 +105,7 @@ public class SignupActivity extends AppCompatActivity {
                 try {
                     JSONObject json = new JSONObject(s);
                     Toast.makeText(activity,json.getString("msg"),Toast.LENGTH_LONG).show();
-                    if(json.getInt("statuscode") > 0){
+                    if(json.getInt("statuscode") > -1){
                         activity.finish();
                     }
                 } catch (JSONException e) {

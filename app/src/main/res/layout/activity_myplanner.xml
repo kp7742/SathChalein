@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ic_launcher_background"
+    tools:context=".fragments.PlannerFragment">
+
+    <TextView
+        android:id="@+id/days3"
+        android:layout_width="40dp"
+        android:layout_height="29dp"
+        android:layout_below="@+id/date"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="92dp"
+        android:layout_toEndOf="@+id/dateText"
+        android:text="Days"
+        android:textStyle="bold"
+        tools:ignore="UnknownId" />
+
+    <TextView
+        android:id="@+id/stateText"
+        android:layout_width="90dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:text="State"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@id/stateText"
+        android:entries="@array/state_array" />
+
+
+    <TextView
+        android:id="@+id/cityText"
+        android:layout_width="92dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:text="City"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/stateText"/>
+
+    <EditText
+        android:id="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stateText"
+        android:layout_marginStart="-19dp"
+        android:layout_marginLeft="-19dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/cityText"
+        android:layout_toRightOf="@id/cityText"
+        android:hint="Enter city for the selected state" />
+
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cityText"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:text="Date" />
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cityText"
+        android:layout_marginLeft="-19dp"
+        android:layout_marginTop="23dp"
+        android:layout_toRightOf="@id/cityText"
+        android:hint="Enter Starting date of Journey" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date"
+        android:layout_marginLeft="-65dp"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@+id/dateText"
+        android:text="Flexible With"
+        tools:ignore="UnknownId" />
+
+    <EditText
+        android:id="@+id/flex_days_enter"
+        android:layout_width="40dp"
+        android:layout_height="29dp"
+        android:layout_below="@+id/date"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="32dp"
+        android:layout_toEndOf="@+id/dateText"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/days"
+        android:layout_width="40dp"
+        android:layout_height="29dp"
+        android:layout_below="@+id/date"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="32dp"
+        android:layout_toEndOf="@+id/dateText"
+        android:text="Days"
+        android:textStyle="bold"
+        tools:ignore="UnknownId" />
+
+    <TextView
+        android:id="@+id/tour_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_below="@+id/checkBox"
+        android:layout_marginStart="-202dp"
+        android:layout_marginTop="22dp"
+        android:layout_toEndOf="@id/days"
+        android:text="Tour Duration :"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+    <EditText
+        android:id="@+id/days_duration"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkBox"
+        android:layout_marginStart="-80dp"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@id/days"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/trip_plan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tour_duration"
+        android:layout_marginStart="-84dp"
+        android:layout_marginTop="217dp"
+        android:layout_toEndOf="@+id/days3"
+        android:text="Plan My Trip!" />
+
+    <Button
+        android:id="@+id/guide_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tour_duration"
+        android:layout_marginStart="-239dp"
+        android:layout_marginTop="73dp"
+        android:layout_toEndOf="@+id/days3"
+        android:text="Select Your Guide!" />
+
+    <Button
+        android:id="@+id/plan_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tour_duration"
+        android:layout_marginStart="-239dp"
+        android:layout_marginTop="123dp"
+        android:layout_toEndOf="@+id/days3"
+        android:text="Select your Travel Plan!" />
+
+    <Button
+        android:id="@+id/travel_new_frnd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tour_duration"
+        android:layout_marginStart="-239dp"
+        android:layout_marginTop="171dp"
+        android:layout_toEndOf="@+id/days3"
+        android:text="Travel with a new friend" />
+
+    <RadioGroup
+        android:id="@+id/travel_mode"
+        android:layout_width="255dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/tour_duration"
+        android:layout_marginStart="-83dp"
+        android:layout_marginTop="17dp"
+        android:layout_toEndOf="@+id/days3">
+
+        <RadioButton
+            android:id="@+id/train"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Train" />
+
+        <RadioButton
+            android:id="@+id/airplane"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Airplane" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tour_duration"
+        android:layout_marginStart="-187dp"
+        android:layout_marginTop="30dp"
+        android:layout_toEndOf="@+id/days3"
+        android:text="Mode of travel" />
+
+</RelativeLayout>

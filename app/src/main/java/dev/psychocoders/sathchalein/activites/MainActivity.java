@@ -16,6 +16,8 @@ import android.view.MenuItem;
 import dev.psychocoders.sathchalein.fragments.DestinationFragment;
 import dev.psychocoders.sathchalein.R;
 import dev.psychocoders.sathchalein.fragments.MainFragment;
+import dev.psychocoders.sathchalein.fragments.PlannerFragment;
+import dev.psychocoders.sathchalein.fragments.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,6 +47,18 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_destination:
                         setFragment(1);
+                        break;
+                    case R.id.nav_events:
+                        setFragment(2);
+                        break;
+                    case R.id.nav_my_plans:
+                        setFragment(3);
+                        break;
+                    case R.id.nav_my_profile:
+                        setFragment(4);
+                        break;
+                    case R.id.nav_my_bookings:
+                        setFragment(5);
                         break;
                 }
 
@@ -102,6 +116,18 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 1:
                 fragment = DestinationFragment.instance();
+                break;
+            case 2:
+                fragment = MainFragment.instance();
+                break;
+            case 3:
+                fragment = PlannerFragment.instance();
+                break;
+            case 4:
+                fragment = ProfileFragment.instance();
+                break;
+            case 5:
+                fragment = MainFragment.instance();
                 break;
             default:
                 fragment = MainFragment.instance();

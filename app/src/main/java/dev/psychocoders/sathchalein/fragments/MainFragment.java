@@ -40,11 +40,9 @@ public class MainFragment extends Fragment {
 
         ArrayList<DestinationModel> models = new ArrayList<>();
         models.add(new DestinationModel("Ajmer",R.drawable.ajmer));
-        models.add(new DestinationModel("Ajmer",R.drawable.ajmer));
-        models.add(new DestinationModel("Ajmer",R.drawable.ajmer));
-        models.add(new DestinationModel("Ajmer",R.drawable.ajmer));
-        models.add(new DestinationModel("Ajmer",R.drawable.ajmer));
-        models.add(new DestinationModel("Ajmer",R.drawable.ajmer));
+        models.add(new DestinationModel("Dargeeling",R.drawable.darjeeling));
+        models.add(new DestinationModel("Taj",R.drawable.taj));
+        models.add(new DestinationModel("Varanasi",R.drawable.varanasi));
 
 
         RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.populardest);

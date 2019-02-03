@@ -18,6 +18,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 import dev.psychocoders.sathchalein.R;
+import dev.psychocoders.sathchalein.utils.Prefs;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -97,7 +98,10 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     JSONObject json = new JSONObject(s);
                     Toast.makeText(activity,json.getString("msg"),Toast.LENGTH_LONG).show();
-                    if(json.getInt("statuscode") > 0){
+                    if(json.getInt("statuscode") > -1){
+                        Prefs.with(activity).write("username",activity.email);
+                        Prefs.with(activity).write("password",activity.pass);
+                        Prefs.with(activity).writeBoolean("islogin",true);
                         activity.startActivity(new Intent(activity, MainActivity.class));
                         activity.finish();
                     }
